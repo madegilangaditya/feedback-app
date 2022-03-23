@@ -9,6 +9,22 @@ function App (){
     ]
     // end section 10
 
+    // Section 11 conditional JSX
+    const loading = false
+    const showComments = true
+    const commentsBlock = (
+        <div className="comments">
+            <h3>Comments ({comments.length})</h3>
+            <ul>
+                {comments.map((comment, index) => (
+                    <li key={index}>{comment.text}</li>
+                ))}    
+            </ul>
+        </div>
+    )
+    if(loading) return <h1>Loading...</h1>
+    // End Section 11
+
     return (
         <div className="container">
             {/* section 10 */}
@@ -17,15 +33,18 @@ function App (){
             {/* can input expression */}
             {/* {Math.random() + (5 + 5)} */}
 
-            
-            <div className="comments">
+            {/* Section 11 */}
+            {showComments && commentsBlock }            
+            {/* end Section 11 */}
+
+            {/* <div className="comments">
                 <h3>Comments ({comments.length})</h3>
                 <ul>
                     {comments.map((comment, index) => (
                         <li key={index}>{comment.text}</li>
                     ))}    
                 </ul>
-            </div>
+            </div> */}
             {/* end section 10 */}
         </div>
     )
