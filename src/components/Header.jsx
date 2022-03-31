@@ -5,7 +5,9 @@ import PropTypes from 'prop-types'
 
 function Header({title}) {
   return (
-    <header>
+    // Section 13 add style jsx to header
+    <header style={{backgroundColor:'blue', color:'red'}}>
+    {/* end Section 13 */}
         <div className="container">
             <h2>{title}</h2>
         </div>
