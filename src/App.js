@@ -32,7 +32,9 @@ function App (){
     return (
         <>  
             {/* Section 12 */}
+                {/* Section 13 add props bgColor and textColor for style */}
             <Header />
+                {/* End section 13 */}
             {/* end Section 12 */}
 
             <div className="container">
