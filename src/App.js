@@ -2,9 +2,15 @@
 import Header from "./components/Header"
 // End Section 12
 
-// Section 14
-import FeedbackItem from "./components/FeedbackItem"
-// end section 14
+// // Section 14
+// import FeedbackItem from "./components/FeedbackItem"
+// // end section 14
+
+// Section 15 managing global state
+import { useState } from "react"
+import FeedbackList from "./components/FeedbackList"
+import FeedbackData from "./data/FeedbackData"
+// end section 15
 
 function App (){
     // section 10
@@ -18,20 +24,24 @@ function App (){
     // end section 10
 
     // Section 11 conditional JSX
-    const loading = false
-    // const showComments = true
-    // const commentsBlock = (
-    //     <div className="comments">
-    //         <h3>Comments ({comments.length})</h3>
-    //         <ul>
-    //             {comments.map((comment, index) => (
-    //                 <li key={index}>{comment.text}</li>
-    //             ))}    
-    //         </ul>
-    //     </div>
-    // )
-    if(loading) return <h1>Loading...</h1>
-    // End Section 11
+    // const loading = false
+    // // const showComments = true
+    // // const commentsBlock = (
+    // //     <div className="comments">
+    // //         <h3>Comments ({comments.length})</h3>
+    // //         <ul>
+    // //             {comments.map((comment, index) => (
+    // //                 <li key={index}>{comment.text}</li>
+    // //             ))}    
+    // //         </ul>
+    // //     </div>
+    // // )
+    // if(loading) return <h1>Loading...</h1>
+    // // End Section 11
+
+    // Section 15 managing global state
+    const [feedback, setFeedback] = useState(FeedbackData)
+    // end section 15
 
     return (
         <>  
@@ -63,7 +73,7 @@ function App (){
                 {/* end section 10 */}
 
                 {/* Section 14 */}
-                    <FeedbackItem />
+                    <FeedbackList feedback={feedback}/>
                 {/* end section 14 */}
             </div>
         </>
