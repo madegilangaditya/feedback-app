@@ -1,11 +1,17 @@
 // Section 14 State & Usestate Hook
 // import { useState } from "react"
+import React from 'react'
 
 // Section 16
 import Card from "./shared/Card"
 import PropTypes from 'prop-types'
 
-function FeedbackItem({item}) {
+// Section 17
+import {FaTimes} from 'react-icons/fa'
+
+
+
+function FeedbackItem({item, handleDelete}) {
     // const [rating, setRating] = useState(7)
     // const [text, setText] = useState('This is an example of Feedback item')
 
@@ -18,9 +24,17 @@ function FeedbackItem({item}) {
     // }
 
     // section 16 add reverse class
+
+    // // section 17 add class handleClick
+    // const handleClick = (id)=>{
+    //     console.log(id)
+    // }
     return (
         <Card>
             <div className="num-display">{item.rating}</div>
+            <button className="close">
+                <FaTimes onClick={() => handleDelete(item.id)} color="purple"/>
+            </button>
             <div className="text-display">
                 {item.text}
             </div>

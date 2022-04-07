@@ -1,4 +1,5 @@
 // Section 12
+import React from 'react'
 import Header from "./components/Header"
 // End Section 12
 
@@ -43,6 +44,12 @@ function App (){
     const [feedback, setFeedback] = useState(FeedbackData)
     // end section 15
 
+    // Section 17
+    const deleteFeedback = (id) => {
+        if(window.confirm('Are you sure to delete?')){
+            setFeedback(feedback.filter((item) => item.id !== id))
+        }
+    }
     return (
         <>  
             {/* Section 12 */}
@@ -73,7 +80,7 @@ function App (){
                 {/* end section 10 */}
 
                 {/* Section 14 */}
-                    <FeedbackList feedback={feedback}/>
+                    <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
                 {/* end section 14 */}
             </div>
         </>
