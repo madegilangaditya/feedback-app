@@ -16,6 +16,9 @@ import FeedbackData from "./data/FeedbackData"
 // Section 18
 import FeedbackStats from './components/FeedbackStats'
 
+// Section 19
+import FeedbackForm from './components/FeedbackForm'
+
 function App (){
     // section 10
     // const title = 'Hellow World'
@@ -81,7 +84,11 @@ function App (){
                     </ul>
                 </div> */}
                 {/* end section 10 */}
-                
+
+                {/* Section 19 */}
+                <FeedbackForm />
+                {/* End section 19 */}
+
                 {/* Section 18 */}
                 <FeedbackStats feedback={feedback}/>
                 {/* end Section 18 */}
