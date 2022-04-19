@@ -3,6 +3,9 @@ import React from 'react'
 import Header from "./components/Header"
 // End Section 12
 
+// Section 23
+import { v4 as uuidv4} from 'uuid'
+
 // // Section 14
 // import FeedbackItem from "./components/FeedbackItem"
 // // end section 14
@@ -18,6 +21,7 @@ import FeedbackStats from './components/FeedbackStats'
 
 // Section 19
 import FeedbackForm from './components/FeedbackForm'
+
 
 function App (){
     // section 10
@@ -56,6 +60,13 @@ function App (){
             setFeedback(feedback.filter((item) => item.id !== id))
         }
     }
+
+    // Section 23
+    const addFeedback = (newFeedback) =>{
+        newFeedback.id = uuidv4()
+        console.log(newFeedback);
+        setFeedback([newFeedback, ...feedback])
+    }
     return (
         <>  
             {/* Section 12 */}
@@ -86,7 +97,7 @@ function App (){
                 {/* end section 10 */}
 
                 {/* Section 19 */}
-                <FeedbackForm />
+                <FeedbackForm  handleAdd={addFeedback}/>
                 {/* End section 19 */}
 
                 {/* Section 18 */}
