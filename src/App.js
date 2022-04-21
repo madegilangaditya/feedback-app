@@ -22,6 +22,10 @@ import FeedbackStats from './components/FeedbackStats'
 // Section 19
 import FeedbackForm from './components/FeedbackForm'
 
+// Section 25
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import AboutPage from './pages/AboutPage'
+
 
 function App (){
     // section 10
@@ -68,7 +72,7 @@ function App (){
         setFeedback([newFeedback, ...feedback])
     }
     return (
-        <>  
+        <Router>  
             {/* Section 12 */}
                 {/* Section 13 add props bgColor and textColor for style */}
             <Header />
@@ -76,39 +80,49 @@ function App (){
             {/* end Section 12 */}
 
             <div className="container">
-                {/* section 10 */}
-                {/* <h1>{title.toUpperCase()}</h1>
-                <p>{body}</p> */}
-                {/* can input expression */}
-                {/* {Math.random() + (5 + 5)} */}
+                <Routes>
+                    <Route exact path='/' element={
+                        <>
+                            {/* Section 19 */}
+                            <FeedbackForm  handleAdd={addFeedback}/>
+                            {/* End section 19 */}
 
-                {/* Section 11 */}
-                {/* {showComments && commentsBlock }             */}
-                {/* end Section 11 */}
+                            {/* Section 18 */}
+                            <FeedbackStats feedback={feedback}/>
+                            {/* end Section 18 */}
 
-                {/* <div className="comments">
-                    <h3>Comments ({comments.length})</h3>
-                    <ul>
-                        {comments.map((comment, index) => (
-                            <li key={index}>{comment.text}</li>
-                        ))}    
-                    </ul>
-                </div> */}
-                {/* end section 10 */}
+                            {/* Section 14 */}
+                            <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
+                            {/* end section 14 */}
+                        </>
+                    }>
+                        {/* section 10 */}
+                        {/* <h1>{title.toUpperCase()}</h1>
+                        <p>{body}</p> */}
+                        {/* can input expression */}
+                        {/* {Math.random() + (5 + 5)} */}
 
-                {/* Section 19 */}
-                <FeedbackForm  handleAdd={addFeedback}/>
-                {/* End section 19 */}
+                        {/* Section 11 */}
+                        {/* {showComments && commentsBlock }             */}
+                        {/* end Section 11 */}
 
-                {/* Section 18 */}
-                <FeedbackStats feedback={feedback}/>
-                {/* end Section 18 */}
+                        {/* <div className="comments">
+                            <h3>Comments ({comments.length})</h3>
+                            <ul>
+                                {comments.map((comment, index) => (
+                                    <li key={index}>{comment.text}</li>
+                                ))}    
+                            </ul>
+                        </div> */}
+                        {/* end section 10 */}
 
-                {/* Section 14 */}
-                    <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
-                {/* end section 14 */}
+                       
+                    </Route>
+                    {/* Section 25 */}
+                    <Route path="/about" element={<AboutPage />}/>
+                </Routes>
             </div>
-        </>
+        </Router>
         
     )
 }
