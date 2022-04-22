@@ -26,6 +26,9 @@ import FeedbackForm from './components/FeedbackForm'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import AboutPage from './pages/AboutPage'
 
+//  Section 27
+import AboutIconLink from './components/AboutIconLink'
+
 
 function App (){
     // section 10
@@ -120,9 +123,14 @@ function App (){
                     </Route>
                     {/* Section 25 */}
                     <Route path="/about" element={<AboutPage />}/>
+                    
                 </Routes>
+                
+                
             </div>
+            <AboutIconLink />
         </Router>
+        
         
     )
 }
