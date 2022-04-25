@@ -23,11 +23,15 @@ import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 
 // Section 25
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
 import AboutPage from './pages/AboutPage'
 
 //  Section 27
 import AboutIconLink from './components/AboutIconLink'
+
+// Section 28
+import Card from './components/shared/Card'
+import Post from './components/Post'
 
 
 function App (){
@@ -123,9 +127,20 @@ function App (){
                     </Route>
                     {/* Section 25 */}
                     <Route path="/about" element={<AboutPage />}/>
+
+                    {/* Section 28 */}
+                    <Route path="/post/:id/:name" element={<Post />}/>
                     
                 </Routes>
-                
+                {/* Section 23 how to create menu in React */}
+                {/* <Card>
+                    <NavLink to='/' activeClassname='active'>
+                        Home
+                    </NavLink>
+                    <NavLink to='/about' activeClassname='active'>
+                        About
+                    </NavLink>
+                </Card> */}
                 
             </div>
             <AboutIconLink />
