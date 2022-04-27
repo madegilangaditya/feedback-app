@@ -129,7 +129,11 @@ function App (){
                     <Route path="/about" element={<AboutPage />}/>
 
                     {/* Section 28 */}
-                    <Route path="/post/:id/:name" element={<Post />}/>
+                    {/* <Route path="/post/:id/:name" element={<Post />}/> */}
+
+                    {/* Section 29 */}
+                    {/* <Route path="/post/" element={<Post />}/> */}
+                    <Route path="/post/*" element={<Post />}/>
                     
                 </Routes>
                 {/* Section 23 how to create menu in React */}
