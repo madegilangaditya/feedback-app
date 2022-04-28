@@ -33,6 +33,9 @@ import AboutIconLink from './components/AboutIconLink'
 import Card from './components/shared/Card'
 import Post from './components/Post'
 
+// Section 30
+import {FeedbackProvider} from './context/FeedbackContext'
+
 
 function App (){
     // section 10
@@ -79,77 +82,78 @@ function App (){
         setFeedback([newFeedback, ...feedback])
     }
     return (
-        <Router>  
-            {/* Section 12 */}
-                {/* Section 13 add props bgColor and textColor for style */}
-            <Header />
-                {/* End section 13 */}
-            {/* end Section 12 */}
+        <FeedbackProvider>
+            <Router>  
+                {/* Section 12 */}
+                    {/* Section 13 add props bgColor and textColor for style */}
+                <Header />
+                    {/* End section 13 */}
+                {/* end Section 12 */}
 
-            <div className="container">
-                <Routes>
-                    <Route exact path='/' element={
-                        <>
-                            {/* Section 19 */}
-                            <FeedbackForm  handleAdd={addFeedback}/>
-                            {/* End section 19 */}
+                <div className="container">
+                    <Routes>
+                        <Route exact path='/' element={
+                            <>
+                                {/* Section 19 */}
+                                <FeedbackForm  handleAdd={addFeedback}/>
+                                {/* End section 19 */}
 
-                            {/* Section 18 */}
-                            <FeedbackStats feedback={feedback}/>
-                            {/* end Section 18 */}
+                                {/* Section 18 */}
+                                <FeedbackStats feedback={feedback}/>
+                                {/* end Section 18 */}
 
-                            {/* Section 14 */}
-                            <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
-                            {/* end section 14 */}
-                        </>
-                    }>
-                        {/* section 10 */}
-                        {/* <h1>{title.toUpperCase()}</h1>
-                        <p>{body}</p> */}
-                        {/* can input expression */}
-                        {/* {Math.random() + (5 + 5)} */}
+                                {/* Section 14 */}
+                                <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
+                                {/* end section 14 */}
+                            </>
+                        }>
+                            {/* section 10 */}
+                            {/* <h1>{title.toUpperCase()}</h1>
+                            <p>{body}</p> */}
+                            {/* can input expression */}
+                            {/* {Math.random() + (5 + 5)} */}
 
-                        {/* Section 11 */}
-                        {/* {showComments && commentsBlock }             */}
-                        {/* end Section 11 */}
+                            {/* Section 11 */}
+                            {/* {showComments && commentsBlock }             */}
+                            {/* end Section 11 */}
 
-                        {/* <div className="comments">
-                            <h3>Comments ({comments.length})</h3>
-                            <ul>
-                                {comments.map((comment, index) => (
-                                    <li key={index}>{comment.text}</li>
-                                ))}    
-                            </ul>
-                        </div> */}
-                        {/* end section 10 */}
+                            {/* <div className="comments">
+                                <h3>Comments ({comments.length})</h3>
+                                <ul>
+                                    {comments.map((comment, index) => (
+                                        <li key={index}>{comment.text}</li>
+                                    ))}    
+                                </ul>
+                            </div> */}
+                            {/* end section 10 */}
 
-                       
-                    </Route>
-                    {/* Section 25 */}
-                    <Route path="/about" element={<AboutPage />}/>
+                        
+                        </Route>
+                        {/* Section 25 */}
+                        <Route path="/about" element={<AboutPage />}/>
 
-                    {/* Section 28 */}
-                    {/* <Route path="/post/:id/:name" element={<Post />}/> */}
+                        {/* Section 28 */}
+                        {/* <Route path="/post/:id/:name" element={<Post />}/> */}
 
-                    {/* Section 29 */}
-                    {/* <Route path="/post/" element={<Post />}/> */}
-                    <Route path="/post/*" element={<Post />}/>
+                        {/* Section 29 */}
+                        {/* <Route path="/post/" element={<Post />}/> */}
+                        <Route path="/post/*" element={<Post />}/>
+                        
+                    </Routes>
+                    {/* Section 23 how to create menu in React */}
+                    {/* <Card>
+                        <NavLink to='/' activeClassname='active'>
+                            Home
+                        </NavLink>
+                        <NavLink to='/about' activeClassname='active'>
+                            About
+                        </NavLink>
+                    </Card> */}
                     
-                </Routes>
-                {/* Section 23 how to create menu in React */}
-                {/* <Card>
-                    <NavLink to='/' activeClassname='active'>
-                        Home
-                    </NavLink>
-                    <NavLink to='/about' activeClassname='active'>
-                        About
-                    </NavLink>
-                </Card> */}
-                
-            </div>
-            <AboutIconLink />
-        </Router>
-        
+                </div>
+                <AboutIconLink />
+            </Router>
+        </FeedbackProvider>
         
     )
 }
