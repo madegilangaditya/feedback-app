@@ -99,11 +99,11 @@ function App (){
                                 {/* End section 19 */}
 
                                 {/* Section 18 */}
-                                <FeedbackStats feedback={feedback}/>
+                                <FeedbackStats />
                                 {/* end Section 18 */}
 
                                 {/* Section 14 */}
-                                <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
+                                <FeedbackList handleDelete={deleteFeedback}/>
                                 {/* end section 14 */}
                             </>
                         }>
