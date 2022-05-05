@@ -4,16 +4,16 @@ import Header from "./components/Header"
 // End Section 12
 
 // Section 23
-import { v4 as uuidv4} from 'uuid'
+// import { v4 as uuidv4} from 'uuid'
 
 // // Section 14
 // import FeedbackItem from "./components/FeedbackItem"
 // // end section 14
 
 // Section 15 managing global state
-import { useState } from "react"
+// import { useState } from "react"
 import FeedbackList from "./components/FeedbackList"
-import FeedbackData from "./data/FeedbackData"
+// import FeedbackData from "./data/FeedbackData"
 // end section 15
 
 // Section 18
@@ -65,22 +65,23 @@ function App (){
     // // End Section 11
 
     // Section 15 managing global state
-    const [feedback, setFeedback] = useState(FeedbackData)
+    // const [feedback, setFeedback] = useState(FeedbackData)
     // end section 15
 
     // Section 17
-    const deleteFeedback = (id) => {
-        if(window.confirm('Are you sure to delete?')){
-            setFeedback(feedback.filter((item) => item.id !== id))
-        }
-    }
+    // const deleteFeedback = (id) => {
+    //     if(window.confirm('Are you sure to delete?')){
+    //         setFeedback(feedback.filter((item) => item.id !== id))
+    //     }
+    // }
 
     // Section 23
-    const addFeedback = (newFeedback) =>{
-        newFeedback.id = uuidv4()
-        console.log(newFeedback);
-        setFeedback([newFeedback, ...feedback])
-    }
+    // const addFeedback = (newFeedback) =>{
+    //     newFeedback.id = uuidv4()
+    //     console.log(newFeedback);
+    //     setFeedback([newFeedback, ...feedback])
+    // }
+
     return (
         <FeedbackProvider>
             <Router>  
@@ -95,7 +96,7 @@ function App (){
                         <Route exact path='/' element={
                             <>
                                 {/* Section 19 */}
-                                <FeedbackForm  handleAdd={addFeedback}/>
+                                <FeedbackForm  />
                                 {/* End section 19 */}
 
                                 {/* Section 18 */}
@@ -103,7 +104,7 @@ function App (){
                                 {/* end Section 18 */}
 
                                 {/* Section 14 */}
-                                <FeedbackList handleDelete={deleteFeedback}/>
+                                <FeedbackList />
                                 {/* end section 14 */}
                             </>
                         }>
