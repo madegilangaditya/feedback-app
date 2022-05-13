@@ -23,14 +23,14 @@ import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 
 // Section 25
-import {BrowserRouter as Router, Route, Routes, NavLink} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import AboutPage from './pages/AboutPage'
 
 //  Section 27
 import AboutIconLink from './components/AboutIconLink'
 
 // Section 28
-import Card from './components/shared/Card'
+// import Card from './components/shared/Card'
 import Post from './components/Post'
 
 // Section 30
