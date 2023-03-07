@@ -1,6 +1,6 @@
 import React from 'react'
 import { createContext, useState, useEffect } from "react"
-import { v4 as uuidv4} from 'uuid'
+// import { v4 as uuidv4} from 'uuid'
 
 const FeedbackContext = createContext()
 
@@ -21,7 +21,7 @@ export const FeedbackProvider = ({children}) =>{
 
     // Fetch feedback function
     const fetchFeedback = async () =>{
-        const response = await fetch (`http://localhost:4000/feedback?_sort=id&_order=desc`)
+        const response = await fetch (`/feedback?_sort=id&_order=desc`)
         const data = await response.json()
 
         setFeedback(data)
@@ -29,17 +29,28 @@ export const FeedbackProvider = ({children}) =>{
     }
 
     // Section 32 Delete feedback
-    const deleteFeedback = (id) => {
+    const deleteFeedback = async (id) => {
         if(window.confirm('Are you sure to delete?')){
+            await fetch(`/feedback/${id}`, {method: 'DELETE'})
             setFeedback(feedback.filter((item) => item.id !== id))
         }
     }
 
     // Add feedback function
-    const addFeedback = (newFeedback) =>{
-        newFeedback.id = uuidv4()
-        console.log(newFeedback);
-        setFeedback([newFeedback, ...feedback])
+    const addFeedback = async (newFeedback) =>{
+        const response = await fetch('/feedback', {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newFeedback)
+        })
+
+        const data = await response.json()
+
+        // newFeedback.id = uuidv4()
+        // console.log(newFeedback);
+        setFeedback([data, ...feedback])
     }
 
     // Section 33 set item to be updated
@@ -51,9 +62,19 @@ export const FeedbackProvider = ({children}) =>{
     }
 
     // Section 35 Update Item process
-    const updateFeedback = (id, updItem) =>{
+    const updateFeedback = async (id, updItem) =>{
+        const response = await fetch(`/feedback/${id}`, {
+            method: 'PUT',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body: JSON.stringify(updItem)
+        })
+
+        const data = await response.json()
+
         setFeedback(
-            feedback.map((item) => (item.id === id ? {...item, ...updItem} : item))
+            feedback.map((item) => (item.id === id ? {...item, ...data} : item))
         )
     }
 
